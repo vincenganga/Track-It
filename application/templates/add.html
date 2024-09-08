@@ -1,0 +1,57 @@
+<!-- HTML file that enables to display the form-->
+{% extends "layout.html" %}
+
+{% block title %}
+    Add
+{% endblock %}
+
+{% block content %}
+
+    <div class="container min-vh-100 d-flex justify-content-center">
+        <div class="col-xs-10 col-sm-6 col-md-6 ml-auto mr-auto">
+            <!-- Title of the page -->
+            <h1>Add Your Expenses</h1>
+            <div class="card">
+                <div class="card-body">
+                    <form action="" method="POST">
+                        <!-- Prevents attacks-->
+                        {{ form.csrf_token() }}
+                        <fieldset class="form-check">
+                            <legend class="mb-4">Incomes And Expenses</legend>
+                            
+                            <div class="mb-3">
+                                {{ form.amount.label(class="form-label") }}
+                                <!-- Ensure there are no errors -->
+                                {% if form.amount.errors %}
+                                {{ form.amount(class="form-control form-control-sm is-invalid") }}
+                                {% for error in form.amount.errors %}
+                                <div class="invalid-feedback">
+                                    <span>{{ error }}</span>
+                                </div>
+                                {% endfor %}
+                                {% else %}
+                                {{ form.amount(class="form-control form-control-sm") }}
+                                {% endif %}
+                            </div>
+    
+                            <div class="mb-3">
+                                {{ form.type.label(class = "form-label") }}
+                                {{ form.type(class = "form-select form-select-sm") }}
+                            </div>
+    
+                            <div class="mb-3">
+                                {{ form.category.label(class = "form-label") }}
+                                {{ form.category(class = "form-select form-select-sm") }}
+                            </div>
+    
+                            <div class="mb-3 border-bottom pb-3">
+                                {{ form.submit(class="btn btn-outline-info") }}
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

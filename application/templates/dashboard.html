@@ -1,0 +1,60 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Dashboard
+{% endblock %}
+
+{% block content %}
+
+    <div class="container min-vh-100 d-flex justify-content-center">
+        <div class="col-xs-10 col-sm-6 col-md-6">
+            <div class="card card-style mb-2">
+                <div class="card-body">
+                    <div class="chart-container" style="position: relative;">
+                        <canvas id="income-vs-expense-chart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>       
+   
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <script>
+        // Get the data passed from Flask using the template variables
+        const incomeVsExpenseData = JSON.parse('{{ income_vs_expense | tojson }}');
+    
+        // Get the canvas elements and create chart contexts
+        const incomeVsExpenseCtx = document.getElementById('income-vs-expense-chart').getContext('2d');
+    
+        // Create the income vs expense chart using Chart.js library
+        const incomeVsExpenseChart = new Chart(incomeVsExpenseCtx, {
+            type: 'pie',
+            data: {
+                labels: ['Expense', 'Income'],
+                datasets: [{
+                    label: 'Income vs Expense',
+                    backgroundColor: ['#FF6384', '#36A2EB'],
+                    borderWidth: 1,
+                    hoverBorderColor: "black",
+                    hoverBorderWidth: 2,
+                    hoverBackgroundColor: 'rgba(192,192,192)',
+                    pointHoverRadius: 5,
+    
+                    data: incomeVsExpenseData
+                }]
+            },
+            options: {
+                responsive: true,
+                title: {
+                    display: true,
+                    text: 'Income vs Expense'
+                }
+            }
+        });
+
+    </script> 
+
+<!-- End of charts -->
+
+{% endblock %}
