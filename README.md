@@ -43,5 +43,3 @@ I need a table in the database for Income and Expenses hence decided to make one
 * Bootstrap
 * Chart.js documentation
 * W3School
-# Track-It
-# Track-It
