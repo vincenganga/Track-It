@@ -1,45 +1,82 @@
-# Project Title: Track It
+# Track It
 
-#### Description:
+### Description
+Track It is a simple web application that helps users track their income and expenses. By inputting financial data, users can visualize their spending habits with a dynamic pie chart, giving them clear insights into their financial health.
 
-In this project, I present to you Track It, a simple web application that lets you track your money expenditure by taking in your income as well as your expense and presents the data in a pie chart.
+### Video Demo
+Check out [Video Demo](https://youtu.be/g5mTiwfEye0).
 
-## Link
-#### Video Demo:  https://youtu.be/g5mTiwfEye0
+## Features
+* **Track Income and Expenses:** Input both income and expenses and categorize them for easy tracking.
+* **Data Visualization:** View your financial breakdown in a pie chart, clearly showing the relationship between income and expenses.
+* **Categorization:** Assign categories to expenses such as salary, rent, investment, and side-hustle to get detailed insights.
 
-## Introduction
-* Index Page:
-  For the index page, you will find a table layout where the user infomation will be presented after inputting the data at the add page.
-  ![Index Page](/Images/Index%20page.png)
+## Pages
+### Index Page
+The Index Page displays a table with user information, generated after the user submits data through the Add Page.
 
-* Add Page:
-  In the add page, there will be a form page which the user will be required to fill out. The form includes an input field of Amount, where the user will input the amount of money they want to be generated. It will also include a Type section which the user can choose between Income and Expense. Lastly there will be a Category section where the user can choose between salary, rent, investment and side-hustle.
-  ![Add Page](/Images/Add%20page.png)
+![Index Page](/Images/Index%20page.png)
 
-* Dashboard Page:
-  In the dashboard page, the user information which is generated after submission will display a pie chart will show the users relationship between Income and Expenses.
-  ![Dashboard Page](/Images/Dashboard%20page.png)
+### Add Page
+The Add Page allows users to input their financial data through a form. The form includes:
+- **Amount:** Input the amount of money for income or expenses.
+- **Type:** Choose between Income and Expense.
+- **Category:** Select from categories like salary, rent, investment, or side-hustle.
 
-## SQLAlchemy and SQLite3
-I need a table in the database for Income and Expenses hence decided to make one with SQLAlchemy:
+![Add Page](/Images/Add%20page.png)
+
+### Dashboard Page
+On the Dashboard Page, a pie chart is generated based on the submitted data, visually displaying the relationship between income and expenses.
+
+![Dashboard Page](/Images/Dashboard%20page.png)
+
+## Database Setup
+Track It uses SQLAlchemy to manage the database, which stores user income and expense data. Below is a snapshot of the database structure.
+
 ![Database](/Images/Database.png)
 
 ## Built With
+* **Python**
+* **JavaScript**
+* **Chart.js** (for data visualization)
+* **Flask** (Python web framework)
+  - **Flask-SQLAlchemy** (for managing the SQLite database)
+  - **Flask-WTF** (for handling forms)
+* **HTML/CSS/Bootstrap** (for frontend styling and responsiveness)
 
-- Python
-- JavaScript
-- Chart.js
-- Flask, Flask-SQLAlchemy, Flask WTF
-- HTML
-- CSS
-- Bootstrap
+## Getting Started
 
-* Used Flask web framework based in Python, necessary for flask-sqlalchemy to manage SQL database with sqlite and flask-wtf to upload files and forms extensions
+### Prerequisites
+To run this project locally, you will need the following:
 
-## Reference:
+- **Python 3.x**
+- **Flask**
+- **Flask-SQLAlchemy**
+- **Flask-WTF**
 
-* Flask WTF-Forms Documentation
-* Stack Overflow
-* Bootstrap
-* Chart.js documentation
-* W3School
+### Installation
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/your-username/track-it.git
+    cd track-it
+    ```
+
+2. Install the required dependencies:
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+3. Run the Flask app:
+    ```bash
+    flask run
+    ```
+
+4. Open your browser and navigate to `http://127.0.0.1:5000`.
+
+## Reference Documentation
+
+* [Flask WTF-Forms Documentation](https://flask-wtf.readthedocs.io/en/stable/)
+* [Stack Overflow](https://stackoverflow.com/)
+* [Bootstrap Documentation](https://getbootstrap.com/docs/)
+* [Chart.js Documentation](https://www.chartjs.org/docs/)
+* [W3Schools](https://www.w3schools.com/)
